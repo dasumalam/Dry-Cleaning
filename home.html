@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Lite - Dry Cleaning & Laundry Experts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body class="overflow-x-hidden font-sans bg-white">
+    <!-- Discount Banner -->
+    <div class="w-full bg-white py-2 flex justify-center items-center sticky top-0 z-50">
+        <div class="container mx-auto px-2 sm:px-4 flex justify-center items-center">
+            <p class="text-gray-800 text-xs sm:text-sm md:text-base font-medium text-center">Get 25% Discounts. Use Coupon Code : <span class="font-bold text-[#3B82F6]">TRYME25</span></p>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="bg-[#3B82F6] rounded-br-[60px] sm:rounded-br-[100px] sticky top-9 z-40">
+        <div class="container mx-auto px-2 sm:px-4 py-2 md:py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center logo-container">
+                <div class="grid grid-cols-2 gap-0.5 mr-1 md:mr-2 logo-grid">
+                    <div class="bg-white p-0.5 md:p-1 rounded-tl-md">
+                        <div class="bg-[#3B82F6] w-4 h-4 md:w-5 md:h-5 rounded-sm"></div>
+                    </div>
+                    <div class="bg-[#8EC640] p-0.5 md:p-1 rounded-tr-md">
+                        <div class="bg-white w-4 h-4 md:w-5 md:h-5 rounded-sm"></div>
+                    </div>
+                    <div class="bg-[#8EC640] p-0.5 md:p-1 rounded-bl-md">
+                        <div class="bg-white w-4 h-4 md:w-5 md:h-5 rounded-sm"></div>
+                    </div>
+                    <div class="bg-[#9333EA] p-0.5 md:p-1 rounded-br-md">
+                        <div class="bg-white w-4 h-4 md:w-5 md:h-5 rounded-sm"></div>
+                    </div>
+                </div>
+                <span class="text-xs md:text-xl font-bold tracking-wide text-white">LAUNDRY LITE</span>
+            </div>
+
+            <!-- Desktop Menu Items (hidden on mobile) -->
+            <div class="hidden lg:flex items-center space-x-2 md:space-x-6 navbar-menu text-xs md:text-base font-semibold">
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Home</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">About Us</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Services</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Pricing</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Commercial</a>
+                <button class="ml-2 bg-[#8EC640] text-white font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full shadow hover:bg-[#7ab32e] transition text-xs md:text-base">Login and Register</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex lg:hidden items-center">
+                <button id="mobile-menu-button" class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden mobile-menu px-4 pb-3 bg-[#3B82F6] rounded-b-2xl">
+            <div class="flex flex-col space-y-1 text-xs font-semibold">
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Home</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">About Us</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Services</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Pricing</a>
+                <a href="#" class="text-white hover:text-[#8EC640] transition text-xs font-semibold">Commercial</a>
+                <button class="mt-2 bg-[#8EC640] text-white font-semibold px-2 py-1 rounded-full shadow hover:bg-[#7ab32e] transition">Login and Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-[#F9F9F9] pt-6 pb-8 sm:py-10 md:py-16">
+        <!-- Left Green Shapes -->
+        <div class="absolute left-0 top-0 h-32 w-20 bg-[#8EC640] rounded-br-full opacity-90 hidden sm:block"></div>
+        <div class="absolute left-0 top-40 h-40 w-20 bg-[#8EC640] rounded-tr-full rounded-br-full opacity-90 hidden sm:block"></div>
+        
+        <!-- Hero Content -->
+        <div class="container mx-auto px-2 sm:px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Left Content -->
+                <div class="w-full md:w-1/2 mb-8 md:mb-0 z-10 text-center md:text-left px-2">
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-2 md:mb-4">Dry Cleaning & <br class="hidden sm:block">Laundry Experts</h1>
+                    <p class="text-sm sm:text-lg text-gray-600 mb-4 md:mb-6 max-w-md mx-auto md:mx-0">Dry cleaning and laundry service, made to make life fresher</p>
+                    
+                    <!-- Postcode Input -->
+                    <div class="relative w-full max-w-md mx-auto md:mx-0 mb-5 md:mb-8">
+                        <div class="border-2 border-[#8EC640] rounded-full overflow-hidden flex">
+                            <input type="text" placeholder="Enter your full postcode" class="w-full py-2.5 sm:py-3 px-3 sm:px-6 outline-none text-xs sm:text-base">
+                            <button class="bg-[#3B82F6] text-white rounded-r-full flex items-center px-3 sm:px-4 py-2 sm:py-0">
+                                <span class="mr-1 sm:mr-2 text-xs sm:text-sm font-medium whitespace-nowrap">Book Now</span>
+                                <div class="bg-white rounded-full w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2 sm:h-3 sm:w-3 text-[#3B82F6]" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Features -->
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start justify-center md:justify-start sm:space-x-3 space-y-2 sm:space-y-0">
+                        <div class="flex-shrink-0">
+                            <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 9L24 9" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 9L9 15" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 9L9 3" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M0 9H11" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 text-sm sm:text-base text-center sm:text-left">
+                            <span class="font-medium">Free Same Day Collection, Next Day Delivery.</span><br>
+                            Cashless Payments, Dedicated 24/7 Support.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Image with Swiper -->
+                <div class="w-full md:w-1/2 relative mt-6 md:mt-0">
+                    <!-- Green Blob Behind Image -->
+                    <div class="absolute -right-10 sm:-right-20 top-0 bottom-0 w-48 sm:w-64 md:w-96 bg-[#8EC640] rounded-l-full opacity-60"></div>
+                    
+                    <!-- Swiper Container -->
+                    <div class="swiper heroSwiper relative rounded-l-full overflow-hidden max-w-xs sm:max-w-md md:max-w-lg mx-auto">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="swiper-slide">
+                                <img src="img/home.png" alt="Mother and child doing laundry" class="rounded-bl-3xl object-cover w-full h-48 sm:h-64 md:h-[350px] lg:h-[450px]">
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide">
+                                <img src="img/basket.png" alt="Laundry service" class="rounded-bl-3xl object-cover w-full h-48 sm:h-64 md:h-[350px] lg:h-[450px]">
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide">
+                                <img src="img/Dry Cleaning Service.jfif" alt="Dry cleaning" class="rounded-bl-3xl object-cover w-full h-48 sm:h-64 md:h-[350px] lg:h-[450px]">
+                            </div>
+                        </div>
+                        
+                        <!-- Custom Navigation Buttons -->
+                        <div class="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 z-10 flex space-x-2">
+                            <button type="button" class="swiper-button-prev-custom w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-5 sm:w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <button type="button" class="swiper-button-next-custom w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#8EC640] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-5 sm:w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blue Wave Section -->
+    <div class="relative">
+        <!-- Blue testimonial section -->
+        <div class="bg-[#3B82F6] py-4 sm:py-6">
+            <div class="container mx-auto px-2 sm:px-6 text-white flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-1">Ranked Excellent by our Customers</h3>
+                    <p class="text-blue-100 text-sm sm:text-base">in Categories Dry cleaner, Laundrette, Laundry service, Tailor and Cobbler.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-1 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                    <a href="#" class="text-xs sm:text-sm text-blue-100 hover:text-white">View More Reviews</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- About Us Section -->
+    <section class="about-section relative">
+        <!-- Wave Divider Top -->
+        <div class="wave-divider-top absolute top-0 left-0 right-0"></div>
+        
+        <div class="container mx-auto px-2 sm:px-6 pt-12 sm:pt-16">
+            <div class="text-center mb-8 sm:mb-10">
+                <span class="about-title text-3xl sm:text-5xl font-bold">About Us</span>
+                <h2 class="about-heading text-2xl sm:text-4xl">Dry Cleaning & <br>Laundry Made Simple</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- Left Image with Call Button -->
+                <div class="md:w-2/5 w-full relative mb-10 md:mb-0 flex justify-center">
+                    <div class="circular-image w-64 sm:w-80 h-64 sm:h-80 mx-auto">
+                        <img src="img/image-02.png" alt="Man cleaning clothes" class="object-cover w-full h-full rounded-full">
+                        
+                        <!-- Call Us Button -->
+                        <a href="tel:+1234567890" class="call-button absolute bottom-0 right-0 cursor-pointer transition-transform hover:scale-105">
+                            <div class="flex items-center mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 phone-icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                                <span class="font-bold text-lg">Call us Now</span>
+                            </div>
+                            <p class="text-lg font-bold">+123 4567 890</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Content -->
+                <div class="md:w-1/2 w-full text-base sm:text-xl">
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        We are experts in the clothing and cleaning business, and that implies we generally keep awake to date on the most recent advances, cleaning techniques, and answers for managing smudges or sensitive textures.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        Clothing upsets means to serve clients in a manner that is a long ways above and beyond. All clothing and cleaning administrations acompany free pickup and conveyance in under 24 hours all over London.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Feature Boxes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 md:mt-20 mb-6 md:mb-10">
+                <!-- Years Experience -->
+                <div class="feature-box p-4 sm:p-6 text-center rounded-lg shadow-md bg-white">
+                    <div class="flex flex-col sm:flex-row justify-center items-center sm:items-start">
+                        <span class="feature-14 text-4xl sm:text-5xl font-bold text-[#3B82F6]">14</span>
+                        <span class="feature-plus text-2xl sm:text-3xl font-bold text-[#8EC640] mt-1">+</span>
+                        <div class="ml-0 sm:ml-2 mt-1 sm:mt-0">
+                            <p class="feature-text text-lg sm:text-xl font-medium">Years Of</p>
+                            <p class="feature-text text-lg sm:text-xl font-medium">Experiences</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Same Day Service -->
+                <div class="feature-box p-4 sm:p-6 text-center rounded-lg shadow-md bg-white">
+                    <p class="feature-text text-lg sm:text-xl font-medium mb-1">Same Day Dry</p>
+                    <p class="feature-text text-lg sm:text-xl font-medium">Cleaning (Express)</p>
+                </div>
+                
+                <!-- 24hrs Service -->
+                <div class="feature-box p-4 sm:p-6 text-center rounded-lg shadow-md bg-white">
+                    <p class="feature-text text-lg sm:text-xl font-medium mb-1">24hrs Laundry</p>
+                    <p class="feature-text text-lg sm:text-xl font-medium">Service (Regular)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-12 sm:py-16 bg-[url('img/image-04.png')] bg-cover bg-center relative overflow-hidden">
+        
+        <div class="container mx-auto px-2 sm:px-6 relative z-10">
+            <h2 class="text-2xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">Services We Offer</h2>
+            
+            <div class="max-w-4xl mx-auto mb-8 sm:mb-10">
+                <p class="text-center mb-4 sm:mb-6 text-sm sm:text-base">
+                    Laundry and dry cleaning services have made life easier for people in London by providing a convenient and efficient way to clean and care for their clothing and textiles. Laundry services allow people to save time and effort, as they no longer need to wash and iron their clothes themselves. Instead, they can simply drop off their dirty laundry at a local laundry service provider Laundry Lite and pick it up later when it is clean and ready to wear.
+                </p>
+                
+                <p class="text-center mb-10">
+                    Laundry Lite, a laundry in London, gives you unfastened dry cleaning & laundry collection services with home pick-up and delivery on scheduled time to your selected areas. We are fast, specialist, professional dry cleaners and laundered in London at your area.
+                </p>
+            </div>
+            
+            <!-- Services Cards Container with Wavy Border -->
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Wavy Border Container -->
+                <div class="bg-white p-4 sm:p-8 mx-auto shadow-md" style="border-radius: 30px; position: relative;">
+                    <!-- Wavy Border Top -->
+                    <div class="absolute top-0 left-0 right-0" style="height: 20px; overflow: hidden;">
+                        <div class="w-full h-40 bg-[#e6f5e6]" style="border-radius: 0 0 50% 50% / 0 0 100% 100%; position: absolute; top: -35px;"></div>
+                    </div>
+                    
+                    <!-- Wavy Border Bottom -->
+                    <div class="absolute bottom-0 left-0 right-0" style="height: 20px; overflow: hidden;">
+                        <div class="w-full h-40 bg-[#e6f5e6]" style="border-radius: 50% 50% 0 0 / 100% 100% 0 0; position: absolute; bottom: -35px;"></div>
+                    </div>
+                    
+                    <!-- Wavy Border Left -->
+                    <div class="absolute top-0 left-0 bottom-0" style="width: 20px; overflow: hidden;">
+                        <div class="h-full w-40 bg-[#e6f5e6]" style="border-radius: 0 100% 100% 0 / 0 50% 50% 0; position: absolute; left: -35px;"></div>
+                    </div>
+                    
+                    <!-- Wavy Border Right -->
+                    <div class="absolute top-0 right-0 bottom-0" style="width: 20px; overflow: hidden;">
+                        <div class="h-full w-40 bg-[#e6f5e6]" style="border-radius: 100% 0 0 100% / 50% 0 0 50%; position: absolute; right: -35px;"></div>
+                    </div>
+                    
+                    <!-- Services Grid - First Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 relative z-10">
+                        <!-- Laundry Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Laundry Service.webp" alt="Laundry Service" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/washing-machine.png" alt="Laundry" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Laundry<br>Service</p>
+                        </div>
+
+                        <!-- Dry Cleaning Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/dry-clinig.webp" alt="Dry Cleaning Service" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/clothes.png" alt="Dry Cleaning" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Dry Cleaning<br>Service</p>
+                        </div>
+
+                        <!-- Ironing Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Ironing Service.jpg" alt="Ironing Service" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/iron.png" alt="Ironing" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Ironing<br>Service</p>
+                        </div>
+
+                        <!-- Wash & Iron Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Wash & Iron Service.webp" alt="Wash & Iron Service" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/iron.png" alt="Wash & Iron" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Wash & Iron<br>Service</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Services Grid - Second Row -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8 relative z-10">
+                        <!-- Household Laundry Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Household Laundry.jpg" alt="Household Laundry" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/washing-machine.png" alt="Household Laundry" class="w-5 h-5">
+                                </div>
+
+                            </div>
+                            <p class="text-center font-medium mt-3">Household Laundry<br>Service</p>
+                        </div>
+
+                        <!-- Alteration Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Alteration Service.jpg" alt="Alteration Service" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/needle.png" alt="Alteration" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Alteration<br>Service</p>
+                        </div>
+
+                        <!-- Shoe Repair Service -->
+                        <div class="flex flex-col items-center">
+                            <div class="mb-3 relative">
+                                <img src="img/Shoe Repair Service.png.png" alt="Shoe Repair" class="w-full h-32 object-cover rounded-lg">
+                                <div class="absolute -bottom-4 -left-2 bg-[#2b96d9] rounded-full w-10 h-10 flex items-center justify-center">
+                                    <img src="https://img.icons8.com/ios-filled/50/ffffff/shoes.png" alt="Shoe Repair" class="w-5 h-5">
+                                </div>
+                            </div>
+                            <p class="text-center font-medium mt-3">Shoe Repair<br>Service</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Green Divider Line -->
+                    <div class="my-6 sm:my-8 mx-auto w-1/2 sm:w-1/3 h-1 bg-[#8ec640] relative z-10"></div>
+                    
+                    <!-- Tagline -->
+                    <p class="text-center font-medium text-gray-700 mb-6 relative z-10">
+                        Customised, convenient, on-demand, affordable,<br>eco-friendly laundry services.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Schedule Button -->
+            <div class="text-center mt-8 sm:mt-10">
+                <a href="#" class="bg-[#2b96d9] hover:bg-[#2385c5] text-white font-medium px-6 sm:px-8 py-2 sm:py-3 rounded-full inline-block transition duration-300">Schedule Your Pickup</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- How it Works Section -->
+     <section class="how-it-works-section bg-[url('img/image-06.png')] bg-cover bg-center relative overflow-hidden py-10 sm:py-16">
+        <div class="how-it-works-container max-w-5xl mx-auto px-2 sm:px-6">
+            <div class="section-header">
+                <div class="icon-container">
+                    <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#8ec640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <p class="steps-text">FOLLOW A FEW EASY STEPS</p>
+                <h2 class="how-it-works-heading">How it Works</h2>
+            </div>
+            
+            <div class="process-steps flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-icon-container">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12" y2="18"></line>
+                                <circle cx="12" cy="12" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">Book A Pickup</h3>
+                    <p class="step-description">Choose when and where you wish<br>us to collect & deliver your laundry.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-icon-container">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">We Collect</h3>
+                    <p class="step-description">Our team collects your clothes from<br>your doorstep.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-icon-container">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+                                <path d="M21 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path>
+                                <line x1="3" y1="13" x2="21" y2="13"></line>
+                                <line x1="9" y1="21" x2="9" y2="17"></line>
+                                <line x1="15" y1="21" x2="15" y2="17"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">Expert Processing</h3>
+                    <p class="step-description">Choose when and where you wish<br>us to collect & deliver your laundry.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-icon-container">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="M2 8h20"></path>
+                                <path d="M8 12h8"></path>
+                                <path d="M8 16h8"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="step-title">We Deliver</h3>
+                    <p class="step-description">We bring back your freshly cleaned<br>and rejuvenated clothes.</p>
+                </div>
+            </div>
+            
+            <div class="schedule-pickup-container text-center mt-8">
+                <a href="#" class="schedule-pickup-btn bg-[#8EC640] hover:bg-[#7ab32e] text-white font-medium px-6 sm:px-10 py-2 sm:py-3 rounded-full transition duration-300 shadow-md hover:shadow-lg inline-block">Schedule Your Pickup</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="choose-us-section py-10 sm:py-16">
+        <div class="choose-us-container max-w-4xl mx-auto px-2 sm:px-6">
+            <h2 class="choose-us-heading">Why Choose Us As Your Laundry & <br>Dry Cleaning Service?</h2>
+            
+            <p class="choose-us-text">
+                Laundry Lite, laundry and dry cleaning service provider in London, is popular for a variety of reasons. Here are some of the top reasons why people choose our services:
+            </p>
+            
+            <div class="reasons-container flex flex-wrap gap-2 sm:gap-4 justify-center mt-4 mb-4">
+                <span class="reason-tag tag-green">Environmental Considerations</span>
+                <span class="reason-tag tag-blue">Convenience</span>
+                <span class="reason-tag tag-blue">Cost</span>
+                <span class="reason-tag tag-green">Quality</span>
+                <span class="reason-tag tag-blue">Health Considerations</span>
+                <span class="reason-tag tag-green">Expertise</span>
+            </div>
+            
+            <p class="choose-us-summary">
+                Overall, Laundry Lite, a 24/7 laundry service provider in London offers a convenient, high-quality, and cost-effective solution for people's laundry and clothing care needs.
+            </p>
+        </div>
+        
+        <!-- Wave Divider Bottom -->
+        <div class="wave-divider-bottom"></div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section bg-[url('img/image-03.png')] bg-cover bg-center relative overflow-hidden py-10 sm:py-16">
+        <div class="container mx-auto px-2 sm:px-4 py-8 sm:py-12">
+            <div class="text-center mb-8 sm:mb-10">
+                <h2 class="text-2xl sm:text-4xl font-bold">Laundry Service<br>Prices</h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
+                <!-- 2x2 Piece Suit -->
+                <div class="bg-white rounded-3xl rounded-bl-[40%] shadow-md overflow-hidden w-64 text-center">
+                    <div class="p-6">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-4 border-[#8EC640] flex items-center justify-center mb-4 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6.5 19h11M5 19V5c0-1.105.893-2 1.994-2h10.012C18.107 3 19 3.895 19 5v14M9 7h6M9 11h6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1">2 x 2</h3>
+                        <p class="text-gray-700 font-medium mb-4">Piece Suit</p>
+                        <p class="text-[#8EC640] font-bold text-2xl">Price £24</p>
+                    </div>
+                </div>
+                
+                <!-- 20 Shirts on Hangers (Featured) -->
+                <div class="bg-[#8EC640] rounded-3xl rounded-bl-[40%] shadow-md overflow-hidden w-64 text-center transform scale-105 -mt-0">
+                    <div class="p-6 pt-8 pb-8">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-[#3B82F6] flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 4l6-2 6 2M12 3v18M5 6.5V19a1 1 0 001 1h12a1 1 0 001-1V6.5a3 3 0 00-3-3H8a3 3 0 00-3 3z"/>
+                                <path d="M8 10h2M14 10h2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1 text-white">20 Shirts on</h3>
+                        <p class="text-white font-medium mb-4">Hangers</p>
+                        <p class="text-white font-bold text-2xl">Price £43</p>
+                    </div>
+                </div>
+                
+                <!-- Bed Sets -->
+                <div class="bg-white rounded-3xl rounded-bl-[40%] shadow-md overflow-hidden w-64 text-center">
+                    <div class="p-6">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-white border-4 border-[#8EC640] flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12V6a2 2 0 012-2h12a2 2 0 012 2v6M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6M1 12h22M4 18h16"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-1">Bed Sets</h3>
+                        <p class="text-gray-700 text-sm font-medium mb-0">(Double/King) size only</p>
+                        <p class="text-gray-700 text-sm font-medium mb-4">wash/dry cleaning + iron</p>
+                        <p class="text-[#8EC640] font-bold text-2xl">Price £20</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-10">
+                <a href="#" class="inline-block bg-black text-white font-medium py-2 sm:py-3 px-6 sm:px-10 rounded-full transition duration-300 hover:bg-gray-800">View Full Price List</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section class="app-section py-10 sm:py-16">
+        <div class="app-container flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-2 sm:px-6">
+            <div class="app-content w-full md:w-1/2 mb-8 md:mb-0 sm:mt-3">
+                <p class="app-tagline">LAUNDRY AND DRYCLEAN APP</p>
+                <h2 class="app-heading">Laundry Service For Your Business!</h2>
+                <ul class="app-features">
+                    <li>A professional laundry and dry cleaners</li>
+                    <li>High-tech, high-touch dry cleaning service</li>
+                    <li>Exclusive offers & discounts</li>
+                </ul>
+                <div class="app-download">
+                    <a href="#" class="google-play transition-transform hover:scale-105">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="150" height="60">
+                    </a>
+                    <a href="#" class="app-store transition-transform hover:scale-105">
+                        <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store" width="135" height="60">
+                    </a>
+                </div>
+            </div>
+            <div class="app-image w-full md:w-1/2 flex justify-center">
+                <img src="img/car.png" alt="Laundry App and Delivery Van" class="app-van-image">
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Recent Articles Section -->
+    <section id="recent-articles" class="recent-articles-section py-10 sm:py-16 bg-white">
+        <div class="container mx-auto px-2 sm:px-6">
+            <h2 class="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 relative opacity-0">
+                Recent Articles
+                <span class="block w-24 h-1 bg-[#8EC640] mx-auto mt-4 opacity-0"></span>
+            </h2>
+            
+            <div class="article-container">
+                <div class="flex flex-wrap -mx-2 sm:-mx-4">
+                    <!-- Article 1 -->
+                    <div class="w-full md:w-1/3 px-2 sm:px-4 mb-6 sm:mb-8 article-card opacity-0">
+                        <div class="article-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dry Cleaning" class="w-full h-56 object-cover">
+                                <div class="absolute bottom-0 left-0 bg-white py-1 px-3 rounded-tr-lg">
+                                    <span class="text-sm text-gray-600 font-medium">DECEMBER 15, 2023</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 bg-[#8EC640] text-white py-1 px-3 rounded-tl-lg">
+                                    <span class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-1.008c-.225.025-.454.008-.682-.056l-4.022 1.212a.5.5 0 01-.635-.633l1.208-4.022a1.495 1.495 0 01-.044-.662A6.99 6.99 0 013 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd" />
+                                        </svg>
+                                        0
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-3 transition-colors duration-300 hover:text-[#8EC640]">What Kind of Fabrics Really Need Dry Cleaning</h3>
+                                <p class="text-gray-600 mb-4">Standard dummy text ever since the item ipsum, the printing and typesetting has remained the ipsum. Stan ard dummy text ever since.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="w-full md:w-1/3 px-2 sm:px-4 mb-6 sm:mb-8 article-card opacity-0">
+                        <div class="article-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1610555356070-d0efb6505f81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Workwear" class="w-full h-56 object-cover">
+                                <div class="absolute bottom-0 left-0 bg-white py-1 px-3 rounded-tr-lg">
+                                    <span class="text-sm text-gray-600 font-medium">DECEMBER 15, 2023</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 bg-[#8EC640] text-white py-1 px-3 rounded-tl-lg">
+                                    <span class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-1.008c-.225.025-.454.008-.682-.056l-4.022 1.212a.5.5 0 01-.635-.633l1.208-4.022a1.495 1.495 0 01-.044-.662A6.99 6.99 0 013 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd" />
+                                        </svg>
+                                        0
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-3 transition-colors duration-300 hover:text-[#8EC640]">Wash Your Workwear To Make Them Last Longer?</h3>
+                                <p class="text-gray-600 mb-4">Standard dummy text ever since the item ipsum, the printing and typesetting has remained the ipsum. Stan ard dummy text ever since.</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 3 -->
+                    <div class="w-full md:w-1/3 px-2 sm:px-4 mb-6 sm:mb-8 article-card opacity-0">
+                        <div class="article-card">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Clothes Delivery" class="w-full h-56 object-cover">
+                                <div class="absolute bottom-0 left-0 bg-white py-1 px-3 rounded-tr-lg">
+                                    <span class="text-sm text-gray-600 font-medium">DECEMBER 15, 2023</span>
+                                </div>
+                                <div class="absolute bottom-0 right-0 bg-[#8EC640] text-white py-1 px-3 rounded-tl-lg">
+                                    <span class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-1.008c-.225.025-.454.008-.682-.056l-4.022 1.212a.5.5 0 01-.635-.633l1.208-4.022a1.495 1.495 0 01-.044-.662A6.99 6.99 0 013 10c0-3.866 3.582-7 8-7s8 3.134 8 7z" clip-rule="evenodd" />
+                                        </svg>
+                                        0
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-3 transition-colors duration-300 hover:text-[#8EC640]">Clothes Will Be Collected, Cleaned And Delivered</h3>
+                                <p class="text-gray-600 mb-4">Standard dummy text ever since the item ipsum, the printing and typesetting has remained the ipsum. Stan ard dummy text ever since.</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12 opacity-0">
+                <a href="#" class="inline-block bg-[#8EC640] hover:bg-[#7ab32e] text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-full transition duration-300 shadow-md hover:shadow-lg">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Our Client's Say Section -->
+    <section class="testimonials-section py-10 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-2 sm:px-6">
+            <h2 class="text-2xl sm:text-4xl font-bold text-center mb-4">What Our Client's Say?</h2>
+            <div class="flex justify-center mb-6 sm:mb-10">
+                <div class="flex items-center">
+                    <div class="flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="20" height="20">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="20" height="20">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="20" height="20">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="20" height="20">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="20" height="20">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <span class="ml-2 text-sm font-bold text-gray-500">5 STAR RATING</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial Swiper -->
+            <div class="swiper testimonialSwiper max-w-4xl mx-auto">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide p-4 sm:p-6 md:p-10">
+                        <div class="flex justify-center mb-4 sm:mb-6">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-white shadow-md">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm sm:text-base md:text-lg text-gray-600 italic mb-4 md:mb-6">" I've been using Laundry Lite for over a year now and the service is exceptional. My clothes are always returned in perfect condition and the staff is very professional. "</p>
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Sarah Johnson</h3>
+                            <div class="flex justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide p-4 sm:p-6 md:p-10">
+                        <div class="flex justify-center mb-4 sm:mb-6">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-white shadow-md">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm sm:text-base md:text-lg text-gray-600 italic mb-4 md:mb-6">" The best dry clean company ever, they always come on time, very easy to place your order any time in the day, very trusted company. I would recommend digital dry clean for everyone. "</p>
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Thomas Willimes</h3>
+                            <div class="flex justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide p-4 sm:p-6 md:p-10">
+                        <div class="flex justify-center mb-4 sm:mb-6">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-white shadow-md">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm sm:text-base md:text-lg text-gray-600 italic mb-4 md:mb-6">" Their attention to detail is amazing. They managed to remove stains that I thought would never come out. The online booking system is also very convenient. "</p>
+                            <h3 class="text-lg sm:text-xl font-bold mb-2">Michael Roberts</h3>
+                            <div class="flex justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffc107" width="14" height="14" class="sm:w-4 sm:h-4">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev absolute left-0 sm:ml-2 md:ml-4 text-green-500 transform -translate-y-1/2 top-1/2 z-10 h-8 w-8 sm:h-10 sm:w-10 items-center justify-center bg-white rounded-full shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </div>
+                <div class="swiper-button-next absolute right-0 sm:mr-2 md:mr-4 text-green-500 transform -translate-y-1/2 top-1/2 z-10 h-8 w-8 sm:h-10 sm:w-10 items-center justify-center bg-white rounded-full shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination mt-4 sm:mt-6 md:mt-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW Service Area Section -->
+    <div class="border-t border-b border-gray-200 py-10 sm:py-16 w-full">
+        <div class="container mx-auto px-2 sm:px-6 md:px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6 sm:mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-black mb-4 sm:mb-6 md:mb-0">Our service area</h2>
+                <a href="#" class="bg-[#3b82f6] hover:bg-blue-600 text-white py-2 sm:py-3 px-6 sm:px-8 rounded-full text-xs sm:text-sm font-medium transition duration-300">View All Locations</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Central London</a>
+                <a href="#" class="border border-blue-300 bg-blue-100 text-blue-800 font-semibold hover:bg-blue-200 hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300">East London</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Essex</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">North London</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">West London</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Hertfordshire</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">South London</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Buckinghamshire</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">London</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Surrey</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Kent</a>
+                <a href="#" class="border border-[#d4e9d4] bg-[#e6f5e6] text-gray-800 hover:bg-[#c6eec6] hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out py-3 px-6 rounded-lg text-center font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-[#8EC640]">Harold Hill</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-10 sm:py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-2 sm:px-6">
+            <div class="text-center mb-8 sm:mb-12">
+                
+                <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-gray-800 relative inline-block">
+                    Frequently Asked Questions about our laundry and dry cleaning services.
+                    </h4>
+         
+                <p class="text-gray-600 mt-2 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">Find answers to the most common questions about our laundry and dry cleaning services.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item mb-6 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button class="faq-question w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-800">How long does it take to clean my clothes?</span>
+                        <svg class="faq-arrow w-5 h-5 text-[#8EC640] transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-gray-600 hidden">
+                        <p>Our standard turnaround time is 24-48 hours for regular service. However, we also offer express service with same-day turnaround for an additional fee. The exact timing depends on the type of garments and cleaning requirements.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item mb-6 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button class="faq-question w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-800">Do you offer pickup and delivery services?</span>
+                        <svg class="faq-arrow w-5 h-5 text-[#8EC640] transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-gray-600 hidden">
+                        <p>Yes, we offer convenient free pickup and delivery services within our service areas. You can schedule a pickup online or via phone, and our team will collect your garments from your doorstep and deliver them back to you cleaned and pressed.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item mb-6 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button class="faq-question w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-800">What cleaning methods do you use?</span>
+                        <svg class="faq-arrow w-5 h-5 text-[#8EC640] transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-gray-600 hidden">
+                        <p>We use a variety of cleaning methods depending on the garment type and fabric. This includes traditional dry cleaning, wet cleaning, and specialized treatments for delicate fabrics. We also use eco-friendly cleaning agents that are gentle on fabrics but tough on stains.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item mb-6 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button class="faq-question w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-800">How do I pay for your services?</span>
+                        <svg class="faq-arrow w-5 h-5 text-[#8EC640] transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-gray-600 hidden">
+                        <p>We accept various payment methods including credit/debit cards, mobile payments, and cash. For regular customers, we also offer monthly billing options. You can pay online through our secure portal or during delivery.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+                    <button class="faq-question w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-800">What if my clothes are damaged or lost?</span>
+                        <svg class="faq-arrow w-5 h-5 text-[#8EC640] transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5 text-gray-600 hidden">
+                        <p>We take the utmost care with your garments, but if an item is damaged or lost, we have a comprehensive compensation policy. Please notify us within 48 hours of receiving your order, and we'll work with you to resolve the issue promptly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 sm:mt-10">
+                <a href="#" class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-[#8EC640] hover:bg-[#7ab32e] text-white font-medium rounded-full transition duration-300 shadow-md hover:shadow-lg">
+                    <span>View More FAQs</span>
+                    <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+   
+    
+    <!-- Footer Section -->
+    <footer class="bg-[#1a2963] relative overflow-hidden py-8 sm:py-12">
+        <!-- Main footer content -->
+        <div class="container mx-auto px-2 sm:px-4 relative z-10  ">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-10">
+                <!-- Logo and description -->
+                <div>
+                    <div class="flex items-center mb-3">
+                        <div class="grid grid-cols-2 gap-0.5 mr-2">
+                            <div class="bg-white p-1 rounded-tl-md">
+                                <div class="bg-[#3B82F6] w-5 h-5 rounded-sm"></div>
+                            </div>
+                            <div class="bg-[#8EC640] p-1 rounded-tr-md">
+                                <div class="bg-white w-5 h-5 rounded-sm"></div>
+                            </div>
+                            <div class="bg-[#8EC640] p-1 rounded-bl-md">
+                                <div class="bg-white w-5 h-5 rounded-sm"></div>
+                            </div>
+                            <div class="bg-[#9333EA] p-1 rounded-br-md">
+                                <div class="bg-white w-5 h-5 rounded-sm"></div>
+                            </div>
+                        </div>
+                        <span class="text-lg font-bold text-white">LAUNDRY LITE</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                        Stanard dummy text ever since the a lsumt, the printi ngtand ypeseti nghas remained the sunt Stanard dumm ytext ever since the a lsumt.
+                    </p>
+                    <div class="flex space-x-1 mb-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ffc107" width="14" height="14">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ffc107" width="14" height="14">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ffc107" width="14" height="14">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ffc107" width="14" height="14">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ffc107" width="14" height="14">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+                    <p class="text-xs font-bold text-[#8EC640] tracking-wide">#1 CUSTOMER-RATED</p>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4 pb-1 border-b-2 border-[#8EC640] inline-block uppercase tracking-wide">CONTACT INFO</h3>
+                    <div class="mt-6 space-y-5">
+                        <!-- Phone number -->
+                        <div class="flex items-center">
+                            <div class="w-9 h-9 rounded-full bg-[#8EC640] flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-xs">Phone No:</p>
+                                <a href="tel:+012076897886" class="text-white text-sm hover:underline">01 207 689 7886</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex items-center">
+                            <div class="w-9 h-9 rounded-full bg-[#8EC640] flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-xs">Email Address:</p>
+                                <a href="mailto:domain@company.com" class="text-white text-sm hover:underline">test@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="flex items-center">
+                            <div class="w-9 h-9 rounded-full bg-[#8EC640] flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-xs">560 Crossing,Clifton</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=5604+Willow+Crossing+Ct,+Clifton,+United+State" target="_blank" class="text-white text-sm hover:underline">
+                                  United State
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services and Quick Links -->
+                <div>
+                            <h3 class="text-white font-bold text-lg mb-4 pb-1 border-b-2 border-[#8EC640] inline-block uppercase tracking-wide">OUR SERVICES</h3>
+                            <ul class="space-y-3 mt-6">
+                                <li class="flex items-center">
+                                    <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                    <a href="#" class="text-white text-sm hover:text-[#8EC640]">Maid Services</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                    <a href="#" class="text-white text-sm hover:text-[#8EC640]">Window Cleaning</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                    <a href="#" class="text-white text-sm hover:text-[#8EC640]">Office Cleaning</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                    <a href="#" class="text-white text-sm hover:text-[#8EC640]">Domestic Cleaning</a>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                    <a href="#" class="text-white text-sm hover:text-[#8EC640]">Drycleaning services</a>
+                                </li>
+                            </ul>
+                </div>
+                    
+                <div>
+                        <h3 class="text-white font-bold text-lg mb-4 pb-1 border-b-2 border-[#8EC640] inline-block uppercase tracking-wide">QUICK LINKS</h3>
+                        <ul class="space-y-3 mt-6">
+                            <li class="flex items-center">
+                                <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                <a href="#" class="text-white text-sm hover:text-[#8EC640]">About Company</a>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                <a href="#" class="text-white text-sm hover:text-[#8EC640]">Advice & Tips</a>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                <a href="#" class="text-white text-sm hover:text-[#8EC640]">Our Team</a>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-[#8EC640] mr-2 text-lg">›</span>
+                                <a href="#" class="text-white text-sm hover:text-[#8EC640]">Our Partners</a>
+                            </li>
+                        </ul>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Service Images -->
+        <div class="container mx-auto px-4 py-10">
+            <div class="flex flex-wrap justify-center -mx-2">
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/Laundry Service.webp" alt="Laundry Service" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/dry-clinig.webp" alt="Dry Cleaning" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/Wash & Iron Service.webp" alt="Shirt Service" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/Household Laundry.jpg" alt="Household Cleaning" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/Alteration Service.jpg" alt="Laundry Delivery" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+                <div class="px-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
+                    <div class="rounded-lg overflow-hidden">
+                        <img src="img/Ironing Service.jpg" alt="Ironing Service" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="bg-[#8EC640] py-4 sm:py-6">
+          <div class="container mx-auto px-2 sm:px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+              <div class="flex items-center md:mb-0 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white mb-1 mr-2 sm:mr-3 transform rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display:inline-block;vertical-align:middle;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+                <h3 class="text-base sm:text-lg font-bold text-white leading-none align-middle" style="display:inline-block;vertical-align:middle;">SUBSCRIBE NEWSLETTER</h3>
+              </div>
+              <div class="flex flex-col sm:flex-row items-center w-full md:w-auto justify-end gap-2 sm:gap-4">
+                <form class="flex items-center w-full sm:w-auto mb-2 sm:mb-0">
+                  <input type="email" placeholder="ENTER YOUR EMAIL..." class="py-2 px-3 sm:px-4 rounded-l-md w-40 sm:w-48 md:w-64 focus:outline-none text-xs sm:text-sm" />
+                  <button type="submit" class="bg-black text-white py-2 px-3 sm:px-4 rounded-r-md font-medium text-xs sm:text-sm uppercase whitespace-nowrap">SUBSCRIBE</button>
+                </form>
+                <div class="flex items-center space-x-2">
+                  <a href="#" class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4267B2" class="bi bi-facebook" viewBox="0 0 16 16">
+                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1DA1F2" class="bi bi-twitter" viewBox="0 0 16 16">
+                      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0077B5" class="bi bi-linkedin" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero Slider Initialization
+            // ... existing code ...
+            
+            // Recent Articles GSAP Animation
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animation for the heading and line
+            gsap.to("#recent-articles h2", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: "#recent-articles",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            gsap.to("#recent-articles h2 span", {
+                opacity: 1,
+                width: "6rem",
+                duration: 0.8,
+                delay: 0.3,
+                scrollTrigger: {
+                    trigger: "#recent-articles",
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Animation for article cards with stagger effect
+            gsap.to(".article-card", {
+                opacity: 1,
+                y: 0,
+                stagger: 0.2,
+                duration: 0.8,
+                delay: 0.5,
+                scrollTrigger: {
+                    trigger: "#recent-articles",
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                }
+            });
+            
+            // Animation for the View All button
+            gsap.to("#recent-articles .text-center", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: 1.1,
+                scrollTrigger: {
+                    trigger: "#recent-articles",
+                    start: "top 60%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
